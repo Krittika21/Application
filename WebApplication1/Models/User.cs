@@ -11,12 +11,7 @@ namespace WebApplication1.Models
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }
-
+        public UserRole UserRole { get; set; }
         public virtual ICollection<UserTestMapping> UserTest { get; set; }
-        public enum UserRole
-        {
-            Coach,
-            Athlete
-        }
     }
 }

@@ -14,6 +14,6 @@ namespace WebApplication1.Models
 
         public virtual ICollection<UserTestMapping> UserTests { get; set; }
 
-        public TestTypeMapping TestTypes { get; set; }
+        public virtual TestTypeMapping TestTypes { get; set; }
     }
 }
