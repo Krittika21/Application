@@ -9,10 +9,12 @@ namespace WebApplication1.Models
     public class TestTypeMapping
     {
         public int ID { get; set; }
+        public int TestTypeId { get; set; }
+        public int TestId { get; set; }
 
-        [ForeignKey("ID")]
-        public virtual TestType TestTestId { get; set; }
-        [ForeignKey("ID")]
-        public virtual TestDetails TestId { get; set; }
+        [ForeignKey("TestTypeId")]
+        public virtual TestType TestTypes { get; set; }
+        [ForeignKey("TestId")]
+        public virtual TestDetails TestDetail { get; set; }
     }
 }

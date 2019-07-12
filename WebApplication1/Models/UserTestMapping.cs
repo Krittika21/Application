@@ -13,9 +13,12 @@ namespace WebApplication1.Models
         public double STTime { get; set; }
         public string FitnessRating { get; set; }
 
-        [ForeignKey("ID")]
-        public virtual TestDetails TestId { get; set; }
-        [ForeignKey("ID")]
-        public virtual User UserId { get; set; }
+        public int TestId { get; set; }
+        public int UserId { get; set; }
+
+        [ForeignKey("TestId")]
+        public virtual TestDetails TestDetail { get; set; }
+        [ForeignKey("UserId")]
+        public virtual User Users { get; set; }
     }
 }

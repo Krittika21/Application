@@ -12,7 +12,7 @@ namespace WebApplication1.Models
         public int ID { get; set; }
         public DateTime Date { get; set; }
 
-        public virtual ICollection<UserTestMapping> UserTests { get; set; }
+        //public virtual ICollection<UserTestMapping> UserTests { get; set; }
         public virtual ICollection<TestTypeMapping> TestTypes { get; set; }
     }
 }
