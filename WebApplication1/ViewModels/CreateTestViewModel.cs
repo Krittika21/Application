@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace WebApplication1.ViewModels
 {
     public class CreateTestViewModel
     {
-        public TestType TestType { get; set; }
-        public TestDetails TestDetails { get; set; }
+        public string TestType { get; set; }
+        public DateTime TestDate { get; set; }
     }
 }

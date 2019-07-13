@@ -9,8 +9,8 @@ namespace WebApplication1.Models
     public class UserTestMapping
     {
         public int ID { get; set; }
-        public double CTDistance { get; set; }
-        public double STTime { get; set; }
+        public double? CTDistance { get; set; }
+        public double? STTime { get; set; }
         public string FitnessRating { get; set; }
 
         public int TestId { get; set; }

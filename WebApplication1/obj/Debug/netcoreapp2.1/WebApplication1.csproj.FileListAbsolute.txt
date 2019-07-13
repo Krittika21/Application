@@ -30,3 +30,5 @@ C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcore
 C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.dll
 C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.pdb
 C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.csproj.CopyComplete
+C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Main\Index.g.cshtml.cs
+C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Main\CreateTest.g.cshtml.cs

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication1.Models.TestTypeMapping>
+@{
+    ViewData["Title"] = "Main";
+}
+
+<h2 class="title" style="text-align:center; margin-bottom: 3em; text-decoration:underline">SPORTS APPLICATION</h2>
+<div>
+    <a asp-action="CreateTest" class="btn btn-default" style="width:100%; 
+    margin-bottom:4em; text-align:center; border-radius:12px"> CREATE NEW TEST</a>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="text-align:center">
+                    DATE
+                </th>
+                <th style="text-align:center">
+                    NO OF PARTICIPANTS
+                </th>
+                <th style="text-align:center">
+                    TEST TYPE
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderByDescending(s =>s.TestDetail.Date))
+            {
+                <tr style="text-align:center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TestDetail.Date)
+                    </td>
+                    <td>
+                        @item.TestDetail.UserTests.Count()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TestDetail.TestTypes.TestTypes.TestName)
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
