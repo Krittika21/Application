@@ -12,22 +12,25 @@ namespace WebApplication1.Controllers
     public class MainController : Controller
     {
         private WebApplication1Context _DbContext;
-
+        public static int testId;
+        //public static int userId;
         public MainController(WebApplication1Context DbContext)
         {
             _DbContext = DbContext;
         }
+//for the list of tests
         public IActionResult Index()
         {
             var lists = _DbContext.TestTypeMapping.Include(s => s.TestDetail).ThenInclude(s=>s.UserTests).Include(s => s.TestTypes);
             return View(lists);
         }
+//for adding new test results to the list             
         public IActionResult CreateTest()
         {
             var test = _DbContext.TestType.AsEnumerable();
             return View(test);
         }
-
+   
         public async Task<IActionResult> CreateNewTest([FromForm]CreateTestViewModel createTestView)
         {
             TestDetails testDetails = new TestDetails();
@@ -44,23 +47,44 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Index");
         }
-
-        public IActionResult CTAthletes()
+//Fot the list of athletes
+        public IActionResult CTAthletes(int id)
         {
-            var athlete = _DbContext.UserTestMapping.Include(s => s.TestDetail).ThenInclude(s => s.TestTypes);
+            testId = id;
+            var date = _DbContext.TestDetails.Where(s => s.ID == id).Select(s => s.Date).Single();
+            var name = _DbContext.TestTypeMapping.Where(s => s.TestId == id).Select(s => s.TestTypes.TestName).Single();
+            var athlete = _DbContext.UserTestMapping.Include(s => s.TestDetail).ThenInclude(s => s.TestTypes).Where(s => s.TestId == id);
+
+            ViewBag.Date = date;
+            ViewBag.Name = name;
+            
             return View(athlete);
         }
-        public IActionResult AthletesList([FromForm]AthletesViewModel athletesViewModel)
+        public async Task<IActionResult> AthletesList([FromForm]AthletesViewModel athletesViewModel)
         {
-            User users = new User();
+            var users = _DbContext.User.Where(s => s.Name == athletesViewModel.AName);
             UserTestMapping userTestMapping = new UserTestMapping();
             TestDetails testDetails = new TestDetails();
             TestTypeMapping typeMapping = new TestTypeMapping();
-            var fit = 
-
-            userTestMapping.UserId = users.ID;
-            userTestMapping.TestId = testDetails.ID;
             
+            typeMapping.TestId = testDetails.ID;
+            _DbContext.UserTestMapping.Add(userTestMapping);
+            await _DbContext.SaveChangesAsync();
+            
+            return Redirect("CTAthletes");
+        }
+//Adding new athletes to the list
+        public IActionResult AddAthlete(int id)
+        {
+            var player = _DbContext.User.AsEnumerable();
+            return View(player);
+        }
+        public async Task<IActionResult> NewAthlete([FromForm]UserTestMapping userTestMapping)
+        {
+            UserTestMapping userTest = new UserTestMapping();
+            User user = new User();
+            var NewA = _DbContext.User.Where(s => s.Name == ).FirstOrDefault();
+            await _DbContext.SaveChangesAsync();
             return View();
         }
     }

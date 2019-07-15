@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication1.Models.UserTestMapping>
+
+@{
+    ViewData["Title"] = "AddAthlete";
+}
+
+<h2>AddAthlete</h2>
+
+<h2>CREATE NEW TEST</h2>
+<a asp-action="CTAthletes" style="float:right">x</a>
+<hr />
+<div class="row" style="align-items:center">
+    <div class="col-md-4">
+        <form asp-action="CreateNewTest">
+            <div class="form-group">
+                <label for="name" style="text-align:center"> Name </label>
+                <br />
+                @*<select id="Name" name="Name" style="align-items:center">
+                    @foreach (var item in Model))
+                    {
+                        <option>@item.Users.Name</option>
+                    }
+                </select>*@
+            </div>
+            <div>
+                <label for="CTDistance" style="text-align:center"> Distance </label>
+                <br />
+                <input id="CTDistance" name="CTDistance" />
+            </div>
+            <br />
+            <div >
+                <button class="btn-default" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

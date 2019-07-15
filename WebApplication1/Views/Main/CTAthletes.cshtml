@@ -1,12 +1,19 @@
 ﻿@model IEnumerable<WebApplication1.Models.UserTestMapping>
+@{ 
+    var fetchDate = (TestDetails)ViewBag.details;
+}
 @{
     ViewData["Title"] = "CTAthletes";
 }
 
-<h2>CTAthletes</h2>
-<h2></h2>
+<h2 class="heading" style="text-align: center; padding-bottom: 2em; padding-top:1em"> @ViewBag.Name  D. @ViewBag.Date </h2>
+<hr/>
 <div>
-   @*@Html.DisplayFor(*@
+  @foreach ( var item in Model)
+  {
+      @item.TestDetail.Date 
+      @item.TestDetail.TestTypes.TestTypes.TestName
+  }
 </div>
 <div>
     <table class="table">
@@ -45,7 +52,7 @@
 </div>
 
 <div class="button1" style="display:flex; justify-content:center">
-    <button class="btn-default" style="border-radius:12px; width:50%; padding-top:.45em; padding-bottom:.45em"> ADD NEW ATHLETE TO TEST </button>
+    <a asp-action="AddAthlete" class="btn btn-default" style="border-radius:12px; width:50%; padding-top:.45em; padding-bottom:.45em"> ADD NEW ATHLETE TO TEST </a>
 </div>
 <br />
 <div class="button2" style="display:flex; justify-content:center">

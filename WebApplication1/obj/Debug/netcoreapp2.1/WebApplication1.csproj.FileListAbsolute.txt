@@ -33,3 +33,4 @@ C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcore
 C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Main\Index.g.cshtml.cs
 C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Main\CreateTest.g.cshtml.cs
 C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Main\CTAthletes.g.cshtml.cs
+C:\Users\krittika\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.1\Razor\Views\Main\AddAthlete.g.cshtml.cs
