@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication1.Models.UserTestMapping>
+@{
+    ViewData["Title"] = "CTAthletes";
+}
+
+<h2>CTAthletes</h2>
+<h2></h2>
+<div>
+   @*@Html.DisplayFor(*@
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="text-align:center">
+                    Ranking
+                </th>
+                <th style="text-align:center">
+                    Distance (meter)
+                </th>
+                <th style="text-align:center">
+                    Fitness Rating
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderByDescending(s => s.CTDistance))
+            {
+                <tr style="text-align:center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Users.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CTDistance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FitnessRating)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p class="note" style="display:flex; justify-content:center"> ( Click on player to change data )</p>
+</div>
+
+<div class="button1" style="display:flex; justify-content:center">
+    <button class="btn-default" style="border-radius:12px; width:50%; padding-top:.45em; padding-bottom:.45em"> ADD NEW ATHLETE TO TEST </button>
+</div>
+<br />
+<div class="button2" style="display:flex; justify-content:center">
+    <button class="btn-default" style="border-radius:12px; width:45%; padding-top:.45em; padding-bottom:.45em"> DELETE TEST </button>
+</div>

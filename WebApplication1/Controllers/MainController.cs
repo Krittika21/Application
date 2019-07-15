@@ -45,5 +45,23 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult CTAthletes()
+        {
+            var athlete = _DbContext.UserTestMapping.Include(s => s.TestDetail).ThenInclude(s => s.TestTypes);
+            return View(athlete);
+        }
+        public IActionResult AthletesList([FromForm]AthletesViewModel athletesViewModel)
+        {
+            User users = new User();
+            UserTestMapping userTestMapping = new UserTestMapping();
+            TestDetails testDetails = new TestDetails();
+            TestTypeMapping typeMapping = new TestTypeMapping();
+            var fit = 
+
+            userTestMapping.UserId = users.ID;
+            userTestMapping.TestId = testDetails.ID;
+            
+            return View();
+        }
     }
 }

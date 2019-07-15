@@ -5,25 +5,36 @@
 }
 
 <h2>CREATE NEW TEST</h2>
-
+<a asp-action="Index" style="float:right">x</a>
 <hr />
-<div class="row">
+<div class="row" style="align-items:center">
     <div class="col-md-4">
         <form asp-action="CreateNewTest">
-           <input type="datetime-local" id="TestDate" name="TestDate"/>
-            <select id="TestType" name="TestType">
-                @foreach (var item in Model)
-                {
-                    <option>@item.TestName</option>
+            <div class="form-group">
+                <label for="test" style="text-align:center"> Test </label>
+                <br />
+                <select id="TestType" name="TestType" style="align-items:center">
+                    @foreach (var item in Model)
+                    {
+                        <option>@item.TestName</option>
 
-                }
-            </select>
-            <button class="btn-default" type="submit">Create</button>
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="date" style="text-align:center"> Date </label>
+                <br />
+                <input type="datetime-local" id="TestDate" name="TestDate" />
+            </div>
+            <br />
+            <div>
+                <button class="btn-default" type="submit">Create</button>
+            </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<br />
+@*<div>
+    <a asp-action="Index">x</a>
+</div>*@
 
