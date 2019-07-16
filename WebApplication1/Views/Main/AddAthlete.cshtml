@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplication1.Models.UserTestMapping>
+﻿@model IEnumerable<WebApplication1.Models.User>
 
 @{
     ViewData["Title"] = "AddAthlete";
@@ -11,16 +11,19 @@
 <hr />
 <div class="row" style="align-items:center">
     <div class="col-md-4">
-        <form asp-action="CreateNewTest">
+        <form asp-action="NewAthlete">
             <div class="form-group">
-                <label for="name" style="text-align:center"> Name </label>
+                <label for="AName" style="text-align:center"> Name </label>
                 <br />
-                @*<select id="Name" name="Name" style="align-items:center">
-                    @foreach (var item in Model))
+                <select id="AName" name="AName" style="align-items:center">
+                    @foreach (var item in Model)
                     {
-                        <option>@item.Users.Name</option>
+                        @if (item.UserRole.Equals(WebApplication1.Models.UserRole.Athlete))
+                        {
+                            <option>@item.Name</option>
+                        }
                     }
-                </select>*@
+                </select>
             </div>
             <div>
                 <label for="CTDistance" style="text-align:center"> Distance </label>
@@ -28,7 +31,7 @@
                 <input id="CTDistance" name="CTDistance" />
             </div>
             <br />
-            <div >
+            <div>
                 <button class="btn-default" type="submit">Create</button>
             </div>
         </form>

@@ -47,16 +47,16 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Index");
         }
-//Fot the list of athletes
+//For the list of athletes
         public IActionResult CTAthletes(int id)
         {
             testId = id;
-            var date = _DbContext.TestDetails.Where(s => s.ID == id).Select(s => s.Date).Single();
-            var name = _DbContext.TestTypeMapping.Where(s => s.TestId == id).Select(s => s.TestTypes.TestName).Single();
-            var athlete = _DbContext.UserTestMapping.Include(s => s.TestDetail).ThenInclude(s => s.TestTypes).Where(s => s.TestId == id);
+            var date = _DbContext.TestDetails.Where(s => s.ID == id).Select(s => s.Date);
+            var name = _DbContext.TestTypeMapping.Where(s => s.TestId == id).Select(s => s.TestTypes.TestName);
+            var athlete = _DbContext.UserTestMapping.Include(s => s.TestDetail).ThenInclude(s => s.TestTypes).Include(s=>s.Users).Where(s => s.TestId == id);
 
-            ViewBag.Date = date;
-            ViewBag.Name = name;
+            ViewBag.Date = date.Single();
+            ViewBag.Name = name.Single();
             
             return View(athlete);
         }
@@ -79,13 +79,42 @@ namespace WebApplication1.Controllers
             var player = _DbContext.User.AsEnumerable();
             return View(player);
         }
-        public async Task<IActionResult> NewAthlete([FromForm]UserTestMapping userTestMapping)
+        public async Task<IActionResult> NewAthlete([FromForm]AthletesViewModel athletesViewModel)
         {
             UserTestMapping userTest = new UserTestMapping();
-            User user = new User();
-            var NewA = _DbContext.User.Where(s => s.Name == ).FirstOrDefault();
+            //var NewA = _DbContext.User.Where(s => s.ID == athletesViewModel.UserId).Select(s => s.Name);
+            var NewA = _DbContext.User.Where(s => s.Name == athletesViewModel.AName).Select(s => s.ID);
+                                  
+            userTest.UserId = NewA.Single();
+                       
+            userTest.TestId = testId;
+            userTest.CTDistance = athletesViewModel.CTDistance;
+
+            _DbContext.UserTestMapping.Add(userTest);
+
             await _DbContext.SaveChangesAsync();
-            return View();
+            return RedirectToAction("CTAthletes");
+        }
+        private String CalculateFitness()
+        {
+            UserTestMapping userTest = new UserTestMapping();
+            if (userTest.CTDistance < 1000)
+            {
+                userTest.FitnessRating = "Below Average";
+            }
+            else if (userTest.CTDistance > 1000 && userTest.CTDistance < 2000)
+            {
+                userTest.FitnessRating = "Average";
+            }
+            else if (userTest.CTDistance > 2000 && userTest.CTDistance < 3500)
+            {
+                userTest.FitnessRating = "Good";
+            }
+            else
+            {
+                userTest.FitnessRating = "Very Good";
+            }
+            return userTest.FitnessRating;
         }
     }
 }

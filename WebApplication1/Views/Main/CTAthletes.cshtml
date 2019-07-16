@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<WebApplication1.Models.UserTestMapping>
-@{ 
+@{
     var fetchDate = (TestDetails)ViewBag.details;
 }
 @{
@@ -7,33 +7,62 @@
 }
 
 <h2 class="heading" style="text-align: center; padding-bottom: 2em; padding-top:1em"> @ViewBag.Name  D. @ViewBag.Date </h2>
-<hr/>
-<div>
-  @foreach ( var item in Model)
-  {
-      @item.TestDetail.Date 
-      @item.TestDetail.TestTypes.TestTypes.TestName
-  }
-</div>
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th style="text-align:center">
-                    Ranking
-                </th>
-                <th style="text-align:center">
-                    Distance (meter)
-                </th>
-                <th style="text-align:center">
-                    Fitness Rating
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.OrderByDescending(s => s.CTDistance))
-            {
+<hr />
+@if (@ViewBag.Name == "100m Sprint Test")
+{
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="text-align:center">
+                        Ranking
+                    </th>
+                    <th style="text-align:center">
+                        Time Taken (sec)
+                    </th>
+                   
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderByDescending(s => s.CTDistance))
+                {
+                    <tr style="text-align:center">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Users.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.STTime)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p class="note" style="display:flex; justify-content:center"> ( Click on player to change data )</p>
+    </div>
+}
+else
+{
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="text-align:center">
+                        Ranking
+                    </th>
+                    <th style="text-align:center">
+                        Distance (meter)
+                    </th>
+                    <th style="text-align:center">
+                        Fitness Rating
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderByDescending(s => s.CTDistance))
+                {
                 <tr style="text-align:center">
                     <td>
                         @Html.DisplayFor(modelItem => item.Users.Name)
@@ -45,11 +74,13 @@
                         @Html.DisplayFor(modelItem => item.FitnessRating)
                     </td>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <p class="note" style="display:flex; justify-content:center"> ( Click on player to change data )</p>
-</div>
+                }
+            </tbody>
+        </table>
+        <p class="note" style="display:flex; justify-content:center"> ( Click on player to change data )</p>
+    </div>
+}
+
 
 <div class="button1" style="display:flex; justify-content:center">
     <a asp-action="AddAthlete" class="btn btn-default" style="border-radius:12px; width:50%; padding-top:.45em; padding-bottom:.45em"> ADD NEW ATHLETE TO TEST </a>

@@ -7,6 +7,7 @@ namespace WebApplication1.ViewModels
 {
     public class AthletesViewModel
     {
+
         public double? CTDistance { get; set; }
         public double? STTime { get; set; }
         public string AName { get; set; }
