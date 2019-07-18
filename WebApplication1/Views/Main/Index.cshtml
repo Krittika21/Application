@@ -29,13 +29,13 @@
             {
                 <tr style="text-align:center">
                     <td>
-                        <a asp-action="CTAthletes" asp-route-id="@item.TestId" style="display:block">  @Html.DisplayFor(modelItem => item.TestDetail.Date)</a>
+                        <a asp-action="TestAthleteDetails" asp-route-id="@item.TestId" style="display:block">  @Html.DisplayFor(modelItem => item.TestDetail.Date)</a>
 </td>
                     <td>
-                        <a asp-action="CTAthletes" asp-route-id="@item.TestId" style="display:block">  @item.TestDetail.UserTests.Count()</a>
+                        <a asp-action="TestAthleteDetails" asp-route-id="@item.TestId" style="display:block">  @item.TestDetail.UserTests.Count()</a>
 </td>
                     <td>
-                        <a asp-action="CTAthletes" asp-route-id="@item.TestId" style="display:block"> @Html.DisplayFor(modelItem => item.TestDetail.TestTypes.TestTypes.TestName)</a>
+                        <a asp-action="TestAthleteDetails" asp-route-id="@item.TestId" style="display:block"> @Html.DisplayFor(modelItem => item.TestDetail.TestTypes.TestTypes.TestName)</a>
                     </td>
                 </tr>
             }

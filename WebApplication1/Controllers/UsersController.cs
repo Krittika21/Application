@@ -11,18 +11,18 @@ namespace WebApplication1.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly WebApplication1Context _DbContext;
+        private readonly WebApplication1Context _dbContext;
 
-        public UsersController(WebApplication1Context DbContext)
+        public UsersController(WebApplication1Context dbContext)
         {
-            _DbContext = DbContext;
+            _dbContext = dbContext;
         }
 
         // GET: Users
         public async Task<IActionResult> Index()
         {
             
-            return View(await _DbContext.User.ToListAsync());
+            return View(await _dbContext.User.ToListAsync());
             
         }
 
@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
-            var user = await _DbContext.User
+            var user = await _dbContext.User
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
@@ -61,8 +61,8 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                _DbContext.Add(user);                
-                await _DbContext.SaveChangesAsync();
+                _dbContext.Add(user);                
+                await _dbContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
@@ -76,7 +76,7 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
-            var user = await _DbContext.User.FindAsync(id);
+            var user = await _dbContext.User.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -100,8 +100,8 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
-                    _DbContext.Update(user);
-                    await _DbContext.SaveChangesAsync();
+                    _dbContext.Update(user);
+                    await _dbContext.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -127,7 +127,7 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
-            var user = await _DbContext.User
+            var user = await _dbContext.User
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
@@ -142,15 +142,15 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _DbContext.User.FindAsync(id);
-            _DbContext.User.Remove(user);
-            await _DbContext.SaveChangesAsync();
+            var user = await _dbContext.User.FindAsync(id);
+            _dbContext.User.Remove(user);
+            await _dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(int id)
         {
-            return _DbContext.User.Any(e => e.ID == id);
+            return _dbContext.User.Any(e => e.ID == id);
         }
     }
 }

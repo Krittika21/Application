@@ -1,0 +1,56 @@
+﻿@model WebApplication1.Models.UserTestMapping
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<a asp-action="TestAthleteDetails" asp-route-id="@Model.TestId" style="float:right; text-decoration-color:crimson">close</a>
+<hr />
+
+
+<div class="row" style="align-items:center">
+    <div class="col-md-4">
+        <form asp-action="PutEdit">
+            <div class="form-group">
+                <label for="AName" style="text-align:center"> Name </label>
+                <br />
+               @Model.Users.Name
+            </div>
+            
+                @if (Model.CTDistance == null)
+                {
+                    <div>
+                        <label for="STTime" style="text-align:center"> Time taken </label>
+                        <br />
+                        <input id="STTime" name="STTime" value="@Model.STTime"/>
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <label for="CTDistance" style="text-align:center"> Distance </label>
+                        <br />
+                        <input id="CTDistance" name="CTDistance" value="@Model.CTDistance"/>
+                    </div>
+                }
+
+            
+            <br />
+            <div>
+                <button class="btn-default" type="submit">SAVE</button>
+            </div>
+        </form>
+        <br/>
+        <div>
+            <a asp-action="DeleteAthlete" asp-route-id="@Model.ID" class="btn btn-default" >DELETE ATHLETE FROM TEST</a>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

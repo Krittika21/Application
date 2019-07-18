@@ -1,39 +1,74 @@
 ﻿@model IEnumerable<WebApplication1.Models.User>
-
+@{ 
+    var fetchTime = (UserTestMapping)ViewBag.testMap;
+}
 @{
     ViewData["Title"] = "AddAthlete";
 }
 
-<h2>AddAthlete</h2>
-
 <h2>CREATE NEW TEST</h2>
-<a asp-action="CTAthletes" style="float:right">x</a>
+<a asp-action="TestAthleteDetails"  style="float:right; text-decoration-color:crimson">close</a>
 <hr />
-<div class="row" style="align-items:center">
-    <div class="col-md-4">
-        <form asp-action="NewAthlete">
-            <div class="form-group">
-                <label for="AName" style="text-align:center"> Name </label>
-                <br />
-                <select id="AName" name="AName" style="align-items:center">
-                    @foreach (var item in Model)
-                    {
-                        @if (item.UserRole.Equals(WebApplication1.Models.UserRole.Athlete))
+
+@if(@ViewBag.Name == "100m Sprint Test")
+{
+    <div class="row" style="align-items:center">
+        <div class="col-md-4">
+            <form asp-action="NewAthlete">
+                <div class="form-group">
+                    <label for="AName" style="text-align:center"> Name </label>
+                    <br />
+                    <select id="AName" name="AName" style="align-items:center">
+                        @foreach (var item in Model)
                         {
-                            <option>@item.Name</option>
+                            @if (item.UserRole.Equals(WebApplication1.Models.UserRole.Athlete))
+                            {
+                                <option>@item.Name</option>
+                            }
                         }
-                    }
-                </select>
-            </div>
-            <div>
-                <label for="CTDistance" style="text-align:center"> Distance </label>
+                    </select>
+                </div>
+                <div>
+                    <label for="STTime" style="text-align:center"> Time taken </label>
+                    <br />
+                    <input id="STTime" name="STTime" />
+                </div>
                 <br />
-                <input id="CTDistance" name="CTDistance" />
-            </div>
-            <br />
-            <div>
-                <button class="btn-default" type="submit">Create</button>
-            </div>
-        </form>
+                <div>
+                    <button class="btn-default" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="row" style="align-items:center">
+        <div class="col-md-4">
+            <form asp-action="NewAthlete">
+                <div class="form-group">
+                    <label for="AName" style="text-align:center"> Name </label>
+                    <br />
+                    <select id="AName" name="AName" style="align-items:center">
+                        @foreach (var item in Model)
+                        {
+                            @if (item.UserRole.Equals(WebApplication1.Models.UserRole.Athlete))
+                            {
+                                <option>@item.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div>
+                    <label for="CTDistance" style="text-align:center"> Distance </label>
+                    <br />
+                    <input id="CTDistance" name="CTDistance" />
+                </div>
+                <br />
+                <div>
+                    <button class="btn-default" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+}

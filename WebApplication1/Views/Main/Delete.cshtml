@@ -1,0 +1,79 @@
+﻿@model WebApplication1.Models.UserTestMapping
+@{
+    var fetchDate = (TestTypeMapping)ViewBag.typeMap;
+}
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2> CONFIRM </h2>
+
+<h3>Are you sure you want to delete this test?</h3>
+@if (@ViewBag.Name == "100m Sprint Test")
+{
+    <div>
+        <h4>UserTestMapping</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.STTime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.STTime)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TestDetail)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TestDetail.ID)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Users)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Users.ID)
+            </dd>
+        </dl>
+    </div>
+}
+else
+{
+    <div>
+        <h4>UserTestMapping</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CTDistance)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CTDistance)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FitnessRating)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FitnessRating)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TestDetail)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TestDetail.ID)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Users)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Users.ID)
+            </dd>
+        </dl>
+    </div>
+}
+<div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Yes" class="btn btn-default" >
+        <button class="btn btn-default" asp-action="Index">No</button>
+    </form>
+</div>
