@@ -16,41 +16,41 @@
             <div class="form-group">
                 <label for="AName" style="text-align:center"> Name </label>
                 <br />
-               @Model.Users.Name
+                @Model.Users.Name
             </div>
-            
-                @if (Model.CTDistance == null)
-                {
-                    <div>
-                        <label for="STTime" style="text-align:center"> Time taken </label>
-                        <br />
-                        <input id="STTime" name="STTime" value="@Model.STTime"/>
-                    </div>
-                }
-                else
-                {
-                    <div>
-                        <label for="CTDistance" style="text-align:center"> Distance </label>
-                        <br />
-                        <input id="CTDistance" name="CTDistance" value="@Model.CTDistance"/>
-                    </div>
-                }
 
-            
+            @if (Model.CTDistance == null)
+            {
+                <div>
+                    <label for="STTime" style="text-align:center"> Time taken </label>
+                    <br />
+                    <input id="STTime" name="STTime" value="@Model.STTime" />
+                </div>
+            }
+            else
+            {
+                <div>
+                    <label for="CTDistance" style="text-align:center"> Distance </label>
+                    <br />
+                    <input id="CTDistance" name="CTDistance" value="@Model.CTDistance" />
+                </div>
+            }
+            <div hidden="hidden">
+                @Html.EditorForModel()
+                @Html.EditorFor(model => model.ID)
+                @Html.EditorFor(model => model.TestId)
+                @Html.EditorFor(model => model.UserId)
+            </div>
             <br />
             <div>
-                <button class="btn-default" type="submit">SAVE</button>
+                <button type="submit">submit</button>
+                @*<a asp-action="PutEdit" asp-route-id="@Model.ID" asp-route-CTDistance="@Model.CTDistance" asp-route-STTime="@Model.STTime" class="btn btn-default">SAVE</a>*@
             </div>
         </form>
-        <br/>
+        <br />
         <div>
-            <a asp-action="DeleteAthlete" asp-route-id="@Model.ID" class="btn btn-default" >DELETE ATHLETE FROM TEST</a>
+            <a asp-action="DeleteAthlete" asp-route-id="@Model.ID" class="btn btn-default">DELETE ATHLETE FROM TEST</a>
         </div>
     </div>
-</div>
-
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 

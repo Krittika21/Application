@@ -13,6 +13,6 @@
     <form asp-action="TestAthleteDetails" asp-route-id="@Model.UserId">
         <input type="hidden" asp-for="@Model.UserId" />
         <a asp-action="RemoveAthlete" asp-route-id="@Model.UserId" class="btn btn-default" >YES</a> |
-        <a asp-action="Edit" class="btn btn-default">NO</a>
+        <a asp-action="Edit" asp-route-id="@Model.UserId" class="btn btn-default">NO</a>
     </form>
 </div>

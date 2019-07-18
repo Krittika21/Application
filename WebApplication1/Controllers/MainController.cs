@@ -93,9 +93,15 @@ namespace WebApplication1.Controllers
             var NewA = _dbContext.User.Where(s => s.Name == athletesViewModel.AName).Select(s => s.ID).First();
                                   
             userTest.UserId = NewA;
-                       
+
+            if (athletesViewModel.CTDistance != null)
+            {
+               userTest.FitnessRating = CalculateFitness(athletesViewModel.CTDistance);
+            }
+
             userTest.TestId = testId;
             userTest.CTDistance = athletesViewModel.CTDistance;
+            //userTest.FitnessRating = CalculateFitness(athletesViewModel.CTDistance);
             userTest.STTime = athletesViewModel.STTime;
 
             _dbContext.UserTestMapping.Add(userTest);
@@ -104,26 +110,27 @@ namespace WebApplication1.Controllers
             return RedirectToAction("TestAthleteDetails", new { id = testId });
         }
 //method to calculate the fitness rating
-        private String CalculateFitness(int id)
+        private String CalculateFitness(double? distance)
         {
-            var userTest = _dbContext.UserTestMapping.Single();
-            if (userTest.CTDistance < 1000)
+            string fitness;
+            //var userTest = _dbContext.UserTestMapping.Where(x=>x.ID == id).Single();
+            if (distance < 1000)
             {
-                userTest.FitnessRating = "Below Average";
+                fitness = "Below Average";
             }
-            else if (userTest.CTDistance > 1000 && userTest.CTDistance < 2000)
+            else if (distance > 1000 && distance < 2000)
             {
-                userTest.FitnessRating = "Average";
+                fitness = "Average";
             }
-            else if (userTest.CTDistance > 2000 && userTest.CTDistance < 3500)
+            else if (distance > 2000 && distance < 3500)
             {
-                userTest.FitnessRating = "Good";
+                fitness = "Good";
             }
             else
             {
-                userTest.FitnessRating = "Very Good";
+                fitness = "Very Good";
             }
-            return userTest.FitnessRating;
+            return fitness;
         }
         // GET: Main/Delete/5
         public IActionResult Delete(int id)
@@ -150,10 +157,18 @@ namespace WebApplication1.Controllers
 
         // PUT: Main/TestAthleteDetails/PutEdit/5
        // [HttpPut]
-        public IActionResult PutEdit(int id)
-        {           
-           var obj = _dbContext.UserTestMapping.Where(s => s.TestId == testId && s.UserId == id).First();
-            _dbContext.Update(obj);
+        public IActionResult PutEdit([FromForm] UserTestMapping userTestMapping)
+        {
+             var obj = _dbContext.UserTestMapping.Where(s => s.UserId == userTestMapping.UserId && s.TestId == userTestMapping.TestId).First();
+            if (userTestMapping.CTDistance != null)
+            {
+                obj.CTDistance = userTestMapping.CTDistance;
+            }
+            else if (userTestMapping.STTime != null) {
+                obj.STTime = userTestMapping.STTime;
+            }
+
+            _dbContext.UserTestMapping.Update(obj);
             _dbContext.SaveChanges();
             return RedirectToAction("TestAthleteDetails", new { id = testId });
         }
@@ -164,9 +179,9 @@ namespace WebApplication1.Controllers
             return View(delAthlete);
         }
         //[HttpDelete]
-        public IActionResult RemoveAthlete(int userId)
+        public IActionResult RemoveAthlete(int id)
         {
-            var obj = _dbContext.UserTestMapping.Where(s => s.TestId == testId && s.UserId == userId).First();
+            var obj = _dbContext.UserTestMapping.Where(s => s.TestId == testId && s.UserId == id).First();
             _dbContext.Remove(obj);
             _dbContext.SaveChanges();
            return RedirectToAction("TestAthleteDetails", new { id = testId });

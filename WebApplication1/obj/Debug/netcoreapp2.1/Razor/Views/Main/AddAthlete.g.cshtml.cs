@@ -71,7 +71,7 @@ using WebApplication1.Models;
             WriteLiteral("\r\n<h2>CREATE NEW TEST</h2>\r\n");
             EndContext();
             BeginContext(186, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "750683493ce94951b0c70bf63820ffbd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e6d35173bbcd46a2ab833ce9468e501d", async() => {
                 BeginContext(273, 5, true);
                 WriteLiteral("close");
                 EndContext();
@@ -103,7 +103,7 @@ using WebApplication1.Models;
             WriteLiteral("    <div class=\"row\" style=\"align-items:center\">\r\n        <div class=\"col-md-4\">\r\n            ");
             EndContext();
             BeginContext(433, 1036, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c5147a2d5a943058d505fc019aaf722", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92a75da06b92434eab2dae9b36531e46", async() => {
                 BeginContext(463, 234, true);
                 WriteLiteral("\r\n                <div class=\"form-group\">\r\n                    <label for=\"AName\" style=\"text-align:center\"> Name </label>\r\n                    <br />\r\n                    <select id=\"AName\" name=\"AName\" style=\"align-items:center\">\r\n");
                 EndContext();
@@ -124,7 +124,7 @@ using WebApplication1.Models;
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(938, 27, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09476229142f4fc180f695d843eadbab", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "798d980352a64cf48af656328b9407c1", async() => {
                     BeginContext(947, 9, false);
 #line 26 "C:\Users\krittika\source\repos\WebApplication1\WebApplication1\Views\Main\AddAthlete.cshtml"
                                    Write(item.Name);
@@ -202,7 +202,7 @@ else
             WriteLiteral("    <div class=\"row\" style=\"align-items:center\">\r\n        <div class=\"col-md-4\">\r\n            ");
             EndContext();
             BeginContext(1605, 1046, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b6d03be18d24f40acd56577cb26012d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa1d3987121b4f3e855b82476babf00e", async() => {
                 BeginContext(1635, 234, true);
                 WriteLiteral("\r\n                <div class=\"form-group\">\r\n                    <label for=\"AName\" style=\"text-align:center\"> Name </label>\r\n                    <br />\r\n                    <select id=\"AName\" name=\"AName\" style=\"align-items:center\">\r\n");
                 EndContext();
@@ -223,7 +223,7 @@ else
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(2110, 27, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f6c00fdaee83458fbe305d8968061b99", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8dd1d276a0b46bd8ab80f62a3330bd2", async() => {
                     BeginContext(2119, 9, false);
 #line 57 "C:\Users\krittika\source\repos\WebApplication1\WebApplication1\Views\Main\AddAthlete.cshtml"
                                    Write(item.Name);
