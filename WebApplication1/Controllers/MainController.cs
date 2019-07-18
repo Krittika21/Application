@@ -104,9 +104,9 @@ namespace WebApplication1.Controllers
             return RedirectToAction("TestAthleteDetails", new { id = testId });
         }
 //method to calculate the fitness rating
-        private String CalculateFitness()
+        private String CalculateFitness(int id)
         {
-            UserTestMapping userTest = new UserTestMapping();
+            var userTest = _dbContext.UserTestMapping.Single();
             if (userTest.CTDistance < 1000)
             {
                 userTest.FitnessRating = "Below Average";
@@ -131,16 +131,16 @@ namespace WebApplication1.Controllers
             var delTest = _dbContext.TestTypeMapping.Where(s => s.ID == testId).Include(s => s.TestDetail).Single();
             return View(delTest);
         }
-       [HttpDelete]
-       public IActionResult DeleteTest([FromForm] TestTypeMapping testTypeMapping)
+       //[HttpDelete]
+       public IActionResult DeleteTest(int id)
         {
-            TestDetails testDetails = new TestDetails();
-            if(testDetails.ID== testTypeMapping.TestId)
-            {
-                _dbContext.Remove(testDetails);
-            }
-            return View();
+            var obj = _dbContext.TestTypeMapping.Where(s => s.TestId == testId).Single();
+            _dbContext.Remove(obj);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index");
         }
+
+
         // GET: Main/TestAthleteDetails/Edit/5
         public IActionResult Edit(int id)
         {
@@ -149,27 +149,27 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: Main/TestAthleteDetails/PutEdit/5
-        [HttpPut]
-        public IActionResult PutEdit([FromForm]UserTestMapping userTestMapping)
-        {
-            _dbContext.Update(userTestMapping);
-            return View();
+       // [HttpPut]
+        public IActionResult PutEdit(int id)
+        {           
+           var obj = _dbContext.UserTestMapping.Where(s => s.TestId == testId && s.UserId == id).First();
+            _dbContext.Update(obj);
+            _dbContext.SaveChanges();
+            return RedirectToAction("TestAthleteDetails", new { id = testId });
         }
         //GET : Delete Athlete
         public IActionResult DeleteAthlete(int id)
         {
-            var delAthlete = _dbContext.UserTestMapping.Where(s => s.TestId == testId && s.UserId == id).Include(s => s.Users).SingleOrDefault();
+            var delAthlete = _dbContext.UserTestMapping.Where(s => s.ID == id).Include(s => s.Users).Single();
             return View(delAthlete);
         }
-        [HttpDelete]
-        public IActionResult DeleteAthlete([FromForm] AthletesViewModel athletesViewModel)
+        //[HttpDelete]
+        public IActionResult RemoveAthlete(int userId)
         {
-            UserTestMapping userTest = new UserTestMapping();
-            if(userTest.ID == userTest.UserId)
-            {
-                _dbContext.Remove(userTest);
-            }
-            return View();
+            var obj = _dbContext.UserTestMapping.Where(s => s.TestId == testId && s.UserId == userId).First();
+            _dbContext.Remove(obj);
+            _dbContext.SaveChanges();
+           return RedirectToAction("TestAthleteDetails", new { id = testId });
         }
     }
 }

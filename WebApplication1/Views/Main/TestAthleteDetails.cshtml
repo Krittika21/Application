@@ -32,7 +32,7 @@
                             <a asp-action="Edit" asp-route-id="@item.Users.ID" style="display:block"> @Html.DisplayFor(modelItem => item.Users.Name)</a>
 </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.STTime" style="display:block"> @Html.DisplayFor(modelItem => item.STTime)</a>
+                            <a asp-action="Edit" asp-route-id="@item.Users.ID" style="display:block"> @Html.DisplayFor(modelItem => item.STTime)</a>
 </td>
 
                     </tr>
@@ -68,10 +68,10 @@ else
                         <a asp-action="Edit" asp-route-id="@item.Users.ID" style="display:block">  @Html.DisplayFor(modelItem => item.Users.Name)</a>
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.CTDistance" style="display:block"> @Html.DisplayFor(modelItem => item.CTDistance)</a>
+                        <a asp-action="Edit" asp-route-id="@item.Users.ID" style="display:block"> @Html.DisplayFor(modelItem => item.CTDistance)</a>
 </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.FitnessRating" style="display:block">@Html.DisplayFor(modelItem => item.FitnessRating)</a>
+                        <a asp-action="Edit" asp-route-id="@item.Users.ID" style="display:block">@Html.DisplayFor(modelItem => item.FitnessRating)</a>
 </td>
                 </tr>
                 }

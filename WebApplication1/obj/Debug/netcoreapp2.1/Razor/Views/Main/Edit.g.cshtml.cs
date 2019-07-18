@@ -70,7 +70,7 @@ using WebApplication1.Models;
             WriteLiteral("\r\n<h2>Edit</h2>\r\n\r\n");
             EndContext();
             BeginContext(108, 124, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d97903a172e47b4bad2c31a0f5ad3b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13a6d6deed53472ca446691cbd4dbd00", async() => {
                 BeginContext(223, 5, true);
                 WriteLiteral("close");
                 EndContext();
@@ -106,7 +106,7 @@ using WebApplication1.Models;
             WriteLiteral("\r\n<hr />\r\n\r\n\r\n<div class=\"row\" style=\"align-items:center\">\r\n    <div class=\"col-md-4\">\r\n        ");
             EndContext();
             BeginContext(328, 1081, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1d61fc3da0649fe8db936d5794ba7fb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "029ae1e5efaf44d09675d6691f08feb6", async() => {
                 BeginContext(355, 156, true);
                 WriteLiteral("\r\n            <div class=\"form-group\">\r\n                <label for=\"AName\" style=\"text-align:center\"> Name </label>\r\n                <br />\r\n               ");
                 EndContext();
@@ -187,7 +187,7 @@ WriteAttributeValue("", 1177, Model.CTDistance, 1177, 17, false);
             WriteLiteral("\r\n        <br/>\r\n        <div>\r\n            ");
             EndContext();
             BeginContext(1453, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "89df412ed2d14dca85bcdb968a0b2dce", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6c27d69f9efc45efbcfd87ebb7ed1eef", async() => {
                 BeginContext(1533, 24, true);
                 WriteLiteral("DELETE ATHLETE FROM TEST");
                 EndContext();
@@ -223,7 +223,7 @@ WriteAttributeValue("", 1177, Model.CTDistance, 1177, 17, false);
             WriteLiteral("\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div>\r\n    ");
             EndContext();
             BeginContext(1614, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "754f3a5f36634aae9dc09bf56011d579", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b3ae072df204d4395ac0bb07e55a7f6", async() => {
                 BeginContext(1636, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();
