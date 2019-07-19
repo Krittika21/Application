@@ -68,7 +68,7 @@ using WebApplication1.Models;
             WriteLiteral("\r\n<h2>CREATE NEW TEST</h2>\r\n");
             EndContext();
             BeginContext(129, 47, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afa06367f23149ba8c21088324ff1dad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1f70cc0b3a246a4904a73761cbb7726", async() => {
                 BeginContext(171, 1, true);
                 WriteLiteral("x");
                 EndContext();
@@ -91,7 +91,7 @@ using WebApplication1.Models;
             WriteLiteral("\r\n<hr />\r\n<div class=\"row\" style=\"align-items:center\">\r\n    <div class=\"col-md-4\">\r\n        ");
             EndContext();
             BeginContext(268, 825, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "323d9c989e224d22a7ff205741199771", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4e9bc0b8985049c4a4361a78aea70236", async() => {
                 BeginContext(301, 223, true);
                 WriteLiteral("\r\n            <div class=\"form-group\">\r\n                <label for=\"test\" style=\"text-align:center\"> Test </label>\r\n                <br />\r\n                <select id=\"TestType\" name=\"TestType\" style=\"align-items:center\">\r\n");
                 EndContext();
@@ -105,7 +105,7 @@ using WebApplication1.Models;
                 WriteLiteral("                        ");
                 EndContext();
                 BeginContext(621, 31, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dddc8e22477e43d7be474d2d07dac805", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afe63dc471964950ad5ac216a1d71f92", async() => {
                     BeginContext(630, 13, false);
 #line 19 "C:\Users\krittika\source\repos\WebApplication1\WebApplication1\Views\Main\CreateTest.cshtml"
                            Write(item.TestName);
